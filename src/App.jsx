@@ -8,25 +8,28 @@ import Footer from './components/Footer'
 import { BrowserRouter, Routes, Route } from 'react-router'
 import IndividualPostPage from './routes/IndividualPostPage'
 import ContactPage from './routes/ContactPage'
-
+import Login from './components/Login'
 
 import './index.css'
 import BlogPostsPage from './routes/BlogPostsPage'
+import { AuthProvider } from './components/AuthProvider'
 
 
 export default function App() {
 
   return (
-   
+   <AuthProvider>
       <div className="min-h-screen bg-pink-200 font-sans text-slate-900 flex flex-col">
         <div>
-          <Routes>
-            <Route path="/" element={<BlogPostsPage/>} />
-            <Route path="/post/:id" element={<IndividualPostPage/>} />
-            <Route path="/contact" element={<ContactPage/>} />
-          </Routes>
+            <Routes>
+              <Route path="/" element={<BlogPostsPage/>} />
+              <Route path="/post/:id" element={<IndividualPostPage/>} />
+              <Route path="/login" element={<Login/>} />
+              <Route path="/contact" element={<ContactPage/>} />
+            </Routes>
         </div>
       </div>
+    </AuthProvider>
   
   );
 }
