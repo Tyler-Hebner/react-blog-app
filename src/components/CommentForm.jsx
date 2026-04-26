@@ -1,30 +1,24 @@
 import { useState } from 'react';
-export default function CommentForm({comment}) {
+export default function CommentForm({comment, user}) {
+  const [text, setText] = useState('');
     
-  const [formInput, setFormInput] = useState({
-    "name": '',
-    "text": ''
-  })
-
   const submitForm = (e) => {
     e.preventDefault();
-    comment(formInput.name, formInput.text);
-    setFormInput({ name: '', text: '' });
+    comment(text);
+    setText('');
   };
 
   return (
-      <form onSubmit={submitForm} className="mb-8 space-y-3">
-      <h3 className="text-xl font-bold text-rose-800 mb-4">Leave a Comment</h3>
-        <input 
-        type="text"
-        value={formInput.name}
-        onChange={(e) => setFormInput({...formInput, name: e.target.value})}
-        className="w-full p-3 border-2 border-pink-100 rounded-xl focus:border-pink-500 outline-none"
-        placeholder="Name"
-      />
+    <form onSubmit={submitForm} className="mb-8 space-y-3">
+      <div className="flex justify-between items-center mb-4">
+        <h3 className="text-xl font-bold text-rose-800 mb-4">Leave a Comment</h3>
+        <p className="text-sm text-slate-500">
+            Posting as <span className="font-bold text-pink-600">{user}</span>
+        </p>
+      </div>
       <textarea 
-        value={formInput.text}
-        onChange={(e) => setFormInput({...formInput, text: e.target.value})}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
         className="w-full p-3 border-2 border-pink-100 rounded-xl focus:border-pink-500 outline-none"
         placeholder="Comment"
         rows="3"

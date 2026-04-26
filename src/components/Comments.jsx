@@ -1,12 +1,14 @@
 import { useState, useEffect} from 'react';
 import CommentForm from './CommentForm';
 import { useParams, Link } from 'react-router';
+import { useUsername } from './AuthContext';
 
 
 export default function Comments({currentComments}) {
 
   const params = useParams();
   const [commentList, setCommentList] = useState(currentComments || []);
+  const username = useUsername()
 
   useEffect(() => {
     setCommentList(currentComments || []);
@@ -17,7 +19,7 @@ export default function Comments({currentComments}) {
     "border-green-400", "border-blue-400", "border-purple-400"
   ];
 
-  const postComment = (name, body) => {
+  const postComment = (body) => {
   
     fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}/comments`, {
       method: 'POST',
@@ -25,12 +27,13 @@ export default function Comments({currentComments}) {
         'Content-type': 'application/json; charset=UTF-8',
       },
       body: JSON.stringify({
-        name: name,
+        name: username,
         body: body,
       })
     })
     .then(res => res.json())
     .then(data => {
+      
       setCommentList([...commentList, data]);
     })
     .catch(e => console.log('Error posting comment:', e));
@@ -38,7 +41,7 @@ export default function Comments({currentComments}) {
 
   return (
     <div className="bg-white rounded-2xl mt-6 p-10 mx-10 border-2 border-pink-500">
-      <CommentForm comment={postComment} />
+      <CommentForm comment={postComment} user={username}/>
 
       <div className="space-y-4">
         {commentList.length === 0 ? (
