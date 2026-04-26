@@ -20,7 +20,10 @@ export default function BlogPostsPage() {
     useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
-      .then(data => setPosts(data))
+      .then(data => {
+        const reversed = [...data].reverse(); 
+        setPosts(reversed)
+      })
       .catch(e => console.log(e))
       .finally(() => setloading(false));
   }, []);

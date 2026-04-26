@@ -12,8 +12,8 @@ export default function NavBar() {
         </Link>
         
         <div className="space-x-8 font-bold text-slate-600">
-          <Link to="/" className="hover:text-pink-500 transition-colors">Home</Link>
-          <Link to="/post/0" className="hover:text-pink-500 transition-colors">First Post</Link>
+          <Link to="/posts" className="hover:text-pink-500 transition-colors">Posts</Link>
+          <Link to="/post/100" className="hover:text-pink-500 transition-colors">Latest Post</Link>
           <Link to="/contact" className="hover:text-pink-500 transition-colors">Contact</Link>
           {username ? (
             <button 
