@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import { BrowserRouter, Routes, Route } from 'react-router'
 import IndividualPostPage from './routes/IndividualPostPage'
 import ContactPage from './routes/ContactPage'
+import HomePage from './routes/HomePage'
 import Login from './components/Login'
 
 import './index.css'
@@ -22,7 +23,9 @@ export default function App() {
       <div className="min-h-screen bg-pink-200 font-sans text-slate-900 flex flex-col">
         <div>
             <Routes>
-              <Route path="/" element={<BlogPostsPage/>} />
+              <Route path="/" element={<HomePage/>} />
+              <Route path="/posts" element={<BlogPostsPage />} />
+              
               <Route path="/post/:id" element={<IndividualPostPage/>} />
               <Route path="/login" element={<Login/>} />
               <Route path="/contact" element={<ContactPage/>} />
