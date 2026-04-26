@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import { useAuth, useUsername } from '../components/AuthContext';
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
 
 export default function HomePage() {
@@ -8,6 +9,7 @@ export default function HomePage() {
 
   return (
   <div className="min-h-screen bg-pink-200 font-sans text-slate-900 flex flex-col">
+    <NavBar/>
     <main className="flex-grow flex flex-col items-center justify-center px-10 py-20">
         
         <div className="bg-white p-12 rounded-3xl border-4 border-pink-500 max-w-4xl w-full text-center transform hover:scale-[1.01] transition-transform">
@@ -47,6 +49,7 @@ export default function HomePage() {
           </div>
     </div>
     </main>
+    <Footer/>
     </div>
   )
 }
