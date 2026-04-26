@@ -5,10 +5,12 @@ import BlogPost from '../components/BlogPost';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import { posts } from '../posts';
+import { useUsername } from '../components/AuthContext';
 
 
 export default function IndividualPostPage() {
   const params = useParams();
+  const username = useUsername();
 
   const [loading, setLoading] = useState(true);
   const [post, setPost] = useState();
@@ -50,8 +52,22 @@ export default function IndividualPostPage() {
               author={author?.name}
               email={author?.email}
             />
-            
-            <Comments key={params.post_id} currentComments={comments}/>
+
+            {username ? (
+              <Comments key={params.post_id} currentComments={comments}/>
+            ) : (
+              <div className="bg-white rounded-2xl mt-6 p-10 mx-10 border-2 border-dashed border-pink-400 text-center">
+                <p className="text-slate-600 mb-4 font-medium">
+                  Comments are hidden for logged out users 
+                </p>
+                <Link 
+                  to="/login" 
+                  className="bg-pink-500 text-white font-bold py-2 px-6 rounded-full hover:bg-rose-600"
+                >
+                  Log in?
+                </Link>
+              </div>
+            )}
           </>
         )}
       </div>
