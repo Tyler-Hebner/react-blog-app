@@ -16,9 +16,14 @@ export default function NavBar() {
           <Link to="/post/0" className="hover:text-pink-500 transition-colors">First Post</Link>
           <Link to="/contact" className="hover:text-pink-500 transition-colors">Contact</Link>
           {username ? (
-            <p className="hover:text-pink-500 transition-colors" onClick={logout}>Logout</p>
-          ): (
-          <Link to="/login" className="hover:text-pink-500 transition-colors">Login</Link>
+            <button 
+              className="hover:text-pink-500 transition-colors font-bold cursor-pointer" 
+              onClick={logout}
+            >
+              Logout
+            </button>
+          ) : (
+            <Link to="/login" className="hover:text-pink-500 transition-colors">Login</Link>
           )}
 
         </div>

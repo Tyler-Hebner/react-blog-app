@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import { useAuth } from "./AuthContext";
+import { useNavigate } from "react-router";
 
 export default function Login() {
     const { login } = useAuth();
+    const navigate = useNavigate();
     const [userData, setUserData] = useState({
         username: '',
         password: ''
     });
     const onSubmit = (e) => {
         e.preventDefault();
-        login(userData.username)
+
+        login(userData.username);
+
+        navigate('/');
     };
     
     return (
