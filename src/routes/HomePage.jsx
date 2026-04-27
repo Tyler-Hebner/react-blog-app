@@ -31,7 +31,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link 
               to="/posts" 
-              className="w-full sm:w-auto px-12 py-4 bg-rose-500 text-white rounded-full font-bold text-xl shadow-lg hover:bg-rose-700 active:scale-95"
+              className="w-full sm:w-auto px-12 py-4 bg-rose-500 text-white rounded-full font-bold text-xl shadow-lg hover:bg-rose-700 active:scale-[0.95] transition"
             >
               View Posts
             </Link>
@@ -39,12 +39,18 @@ export default function HomePage() {
             {!username && 
               <Link 
                 to="/login" 
-                className="w-full sm:w-auto px-12 py-4 bg-rose-500 text-white rounded-full font-bold text-xl shadow-lg hover:bg-rose-700 active:scale-95"
+                className="w-full sm:w-auto px-12 py-4 bg-rose-500 text-white rounded-full font-bold text-xl shadow-lg hover:bg-rose-700 active:scale-[0.95] transition "
               >
                 Log In
               </Link>
-              }
-          </div>
+              }      
+    </div>
+    <div 
+      className="h-2 w-full max-w-4xl mx-auto rounded-full my-10 shadow-sm"
+      style={{
+        background: 'linear-gradient(to right, #f56b6b, #f79b44, #ffd67c, #43e69a, #5fa6fc, #976ff5)'
+      }}
+    />
     </div>
     </main>
     <Footer/>

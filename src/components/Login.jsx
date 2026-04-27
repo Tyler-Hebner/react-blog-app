@@ -52,7 +52,7 @@ export default function Login() {
           value={userData.password}
           onChange={(e) => setUserData({...userData, password: e.target.value})}
         />
-        <button type="submit" className="w-full bg-pink-500 text-white py-2 rounded-full font-bold hover:bg-rose-600">
+        <button type="submit" className="w-full bg-pink-500 text-white py-2 rounded-full font-bold hover:bg-rose-600 active:scale-[0.95] transition">
           Sign In
         </button>
       </form>

@@ -35,7 +35,7 @@ export default function BlogPostsPage() {
         ) : (
           <>
         {posts.map((post) => (
-        <Link key={post.id} to={`/post/${post.id}`} className="block hover:scale-102">
+        <Link key={post.id} to={`/post/${post.id}`} className="block hover:scale-[1.01] transition">
           <BlogPost
             title={post.title}
             content={`${post.body.substring(0, 20)}... click to read full post`}

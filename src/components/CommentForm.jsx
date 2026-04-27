@@ -25,7 +25,7 @@ export default function CommentForm({comment, user}) {
       />
       <button 
         type="submit"
-        className="bg-pink-500 text-white font-bold py-2 px-6 rounded-full hover:bg-rose-600"
+        className="bg-pink-500 text-white font-bold py-2 px-6 rounded-full hover:bg-rose-600 active:scale-[0.95] transition"
       >
         Submit
       </button>
