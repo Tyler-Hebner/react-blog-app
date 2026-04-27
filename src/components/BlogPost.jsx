@@ -1,5 +1,3 @@
-import Comments from './Comments'
-
 export default function BlogPost({ title, content, author, email}) {
   return (
     <article className="bg-white p-8 rounded-2xl border-2 border-pink-500 border mb-8 hover:bg-purple-50 mx-10">

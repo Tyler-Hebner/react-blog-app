@@ -4,7 +4,6 @@ import Comments from '../components/Comments';
 import BlogPost from '../components/BlogPost';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-import { posts } from '../posts';
 import { useUsername } from '../components/AuthContext';
 
 

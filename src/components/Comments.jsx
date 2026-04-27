@@ -1,6 +1,6 @@
 import { useState, useEffect} from 'react';
 import CommentForm from './CommentForm';
-import { useParams, Link } from 'react-router';
+import { useParams } from 'react-router';
 import { useUsername } from './AuthContext';
 
 

@@ -4,9 +4,6 @@ import Footer from '../components/Footer'
 import BlogPost from '../components/BlogPost'
 import { Link, useParams } from 'react-router'
 
-import IndividualPostPage from './IndividualPostPage'
-import ContactPage from './ContactPage'
-import { posts } from '../posts';
 import '../index.css'
 
 

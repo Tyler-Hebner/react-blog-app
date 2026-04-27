@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { useAuth, useUsername } from '../components/AuthContext';
+import { useUsername } from '../components/AuthContext';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 
@@ -36,16 +36,14 @@ export default function HomePage() {
               View Posts
             </Link>
 
-            {username ? (
-              <p></p>
-            ) : (
+            {!username && 
               <Link 
                 to="/login" 
                 className="w-full sm:w-auto px-12 py-4 bg-rose-500 text-white rounded-full font-bold text-xl shadow-lg hover:bg-rose-700 active:scale-95"
               >
                 Log In
               </Link>
-              )}
+              }
           </div>
     </div>
     </main>
