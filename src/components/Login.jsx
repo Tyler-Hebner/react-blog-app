@@ -9,11 +9,21 @@ export default function Login() {
         username: '',
         password: ''
     });
+    const [error, setError] = useState("");
+
+
     const onSubmit = (e) => {
         e.preventDefault();
+        
+
+        if (!userData.username.trim() || !userData.password.trim()) {
+            setError("Please enter both a username and password");
+            return; 
+        }
 
         login(userData.username);
 
+        setError("");
         navigate('/');
     };
     
@@ -21,6 +31,13 @@ export default function Login() {
     <div className="min-h-screen bg-pink-200 flex items-center justify-center">
       <form onSubmit={onSubmit} className="bg-white p-10 rounded-2xl shadow-lg border-2 border-pink-500 w-80">
         <h2 className="text-2xl font-bold text-rose-800 mb-6 text-center">Login</h2>
+
+        {error && (
+            <div className="mb-4 p-2 bg-rose-50 border border-rose-200 text-rose-500 text-sm text-center rounded-lg">
+                {error}
+            </div>
+        )}
+
         <input 
           type="text" 
           placeholder="Username"
